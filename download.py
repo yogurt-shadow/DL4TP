@@ -22,6 +22,9 @@ if __name__ == '__main__':
     count = len(matched_links)
     print(f"Find {count} links in README.md")
     # download pdf files
-    print(f"Downloading pdf files to {folder_path}")
+    print(f"Downloading {len(matched_links)} pdf files to {folder_path}")
+    finished = 0
     for link in matched_links:
         os.system(f"wget {link} -P {folder_path}")
+        finished += 1
+        print(f"Downloaded {finished}/{count} pdf files")
